@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Dashboard from './components/Dashboard/Dashboard';
+import Form from './components/Form/Form';
+import axios from 'axios'
+import Header from './components/Header/Header';
+import {HashRouter, Route, Switch} from 'react-router-dom'
+import routes from './components/routes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      products: []   
+    }
+  }
+  
+  render(){
+    return (
+      <HashRouter>
+        <div className="App">
+          <Header />
+          {routes}
+        </div>
+      </HashRouter>
+    )
+  }
 }
-
-export default App;
+export default App
